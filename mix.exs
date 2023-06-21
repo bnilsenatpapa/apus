@@ -28,7 +28,9 @@ defmodule Apus.MixProject do
       {:ex_doc, "~> 0.28.2", only: :dev},
       {:hackney, "~> 1.12"},
       {:jason, "~> 1.0"},
-      {:plug, "~> 1.5"}
+      {:plug, "~> 1.5"},
+      {:redix, "~> 1.2"},
+      {:json, "~> 1.4"}
     ]
   end
 

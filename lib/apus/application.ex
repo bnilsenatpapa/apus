@@ -6,7 +6,8 @@ defmodule Apus.Application do
   def start(_type, _args) do
     children = [
       %{id: Apus.SentMessages, start: {Apus.SentMessages, :start_link, []}},
-      {Task.Supervisor, name: Apus.TaskSupervisorStrategy.supervisor_name()}
+      {Task.Supervisor, name: Apus.TaskSupervisorStrategy.supervisor_name()},
+      {Redix, name: :redix}
     ]
 
     opts = [strategy: :one_for_one, name: Apus.Supervisor]
