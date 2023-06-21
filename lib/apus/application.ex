@@ -7,7 +7,7 @@ defmodule Apus.Application do
     children = [
       %{id: Apus.SentMessages, start: {Apus.SentMessages, :start_link, []}},
       {Task.Supervisor, name: Apus.TaskSupervisorStrategy.supervisor_name()},
-      {Redix, name: :redix}
+      {Redix, name: :redix, url: Application.get_env(:apus, :url, "localhost:6379")}
     ]
 
     opts = [strategy: :one_for_one, name: Apus.Supervisor]
