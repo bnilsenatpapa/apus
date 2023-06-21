@@ -2,7 +2,7 @@ defmodule Apus.SentMessagesRedis do
   @moduledoc false
 
   def all() do
-    case Redix.command(:apus_redix, ["LRANGE", "sms_list", "0", "-1"]) do
+    case Redix.command(:redix_1, ["LRANGE", "sms_list", "0", "-1"]) do
       {:ok, msg} ->
         msg
         |> Enum.map(fn m ->
